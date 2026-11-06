@@ -1,20 +1,341 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-  <html lang="en">
-  <meta charset="utf-8">
-	  <link rel="stylesheet" type="text/css" href="style.css">
-	<title>Penguin112358 Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girih-2-Generative-Art - Historic Girih Patterns for Modern Design</title>
+<meta name="description" content="Seed-based generative Islamic geometry. Three historic girih patterns drawn over a recursive tree in historic CSS colour palettes. A reproducible catalogue of computational ornament for fashion, textile, and surface design.">
+<meta name="keywords" content="computational-design, creative-coding, css, generative-art-toolkit, girih, html, javascript, p5js, procedural-generation, reyrove, tessellation, textile-design">
+<meta name="author" content="karatepradeep">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/karatepradeep/Girih-2-Generative-Art">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Girih-2-Generative-Art - Historic Girih Patterns for Modern Design">
+<meta property="og:description" content="Seed-based generative Islamic geometry. Three historic girih patterns drawn over a recursive tree, in historic CSS colour palettes. A reproducible catalogue of computational ornament.">
+<meta property="og:url" content="https://github.com/karatepradeep/Girih-2-Generative-Art">
+<meta property="og:site_name" content="Girih-2-Generative-Art">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Girih-2-Generative-Art - Historic Girih Patterns for Modern Design">
+<meta name="twitter:description" content="Seed-based generative Islamic geometry. Three historic girih patterns drawn over a recursive tree, in historic CSS colour palettes.">
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f6f4f0;
+    color: #2b2b2b;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 22px 80px 22px;
+  }
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.25;
+    margin: 0 0 18px 0;
+    letter-spacing: -0.4px;
+    color: #1f1c1a;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 1.45rem;
+    margin: 52px 0 14px 0;
+    color: #1f1c1a;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+  h3 {
+    font-size: 1.12rem;
+    margin: 28px 0 8px 0;
+    color: #3a3330;
+    font-weight: 650;
+  }
+  p { margin: 0 0 16px 0; }
+  ul, ol { margin: 0 0 18px 0; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+  a { color: #7b2d8e; }
+  .lead {
+    font-size: 1.12rem;
+    color: #4a4340;
+    margin-bottom: 28px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 17px 34px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7b2d8e 0%, #d94f70 55%, #e8a13a 100%);
+    color: #ffffff !important;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(123, 45, 142, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(123, 45, 142, 0.36);
+  }
+  .btn-wrap {
+    margin: 30px 0 14px 0;
+    text-align: center;
+  }
+  .btn-note {
+    text-align: center;
+    font-size: 0.92rem;
+    color: #6d6560;
+    margin-top: 12px;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin: 22px 0;
+    box-shadow: 0 4px 18px rgba(31, 28, 26, 0.07);
+    border: 1px solid #ece7e1;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 22px 0;
+  }
+  .grid .card {
+    flex: 1 1 240px;
+    margin: 0;
+  }
+  .tag {
+    display: inline-block;
+    background: #efe9f2;
+    color: #6a2a7c;
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 0.82rem;
+    margin: 4px 6px 4px 0;
+    font-weight: 600;
+  }
+  .highlight {
+    background: #fdf6e9;
+    border-left: 4px solid #e8a13a;
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 22px 0;
+  }
+  .step {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 14px 0;
+    box-shadow: 0 3px 12px rgba(31, 28, 26, 0.06);
+    border: 1px solid #ece7e1;
+  }
+  .step strong { color: #7b2d8e; }
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid #e2dcd5;
+    font-size: 0.9rem;
+    color: #6d6560;
+  }
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    h1 { font-size: 1.62rem; }
+    h2 { font-size: 1.25rem; }
+    .page { padding: 30px 16px 60px 16px; }
+    .card { padding: 20px 18px; }
+    .btn { display: block; text-align: center; }
+  }
+</style>
 </head>
+<body>
+<div class="page">
 
-<html>
-	<body>
-	<nav>
-		<a class="navigation" href="languageresources">Language Resources</a>
-		<a class="navigation" href=".">Home Page</a>
-	</nav>
-	<main>
-		<p>Hello. I'm too stupid to understand coding.</p>
-	</main>
-  </body>
+  <h1>✨ Girih-2-Generative-Art - Historic Girih Patterns for Modern Design</h1>
+
+  <p class="lead">
+    Create beautiful Islamic geometric patterns on your own computer. Every pattern is generated
+    from a simple seed number, so you can produce the same artwork again and again — perfect for
+    fabric prints, wallpaper, stationery, and surface design.
+  </p>
+
+  <div class="btn-wrap">
+    <a class="btn" href="https://github.com/karatepradeep/Girih-2-Generative-Art">⬇ Download Girih-2-Generative-Art</a>
+    <p class="btn-note">Visit this link to download the application.</p>
+  </div>
+
+  <h2>🎨 What This Application Does</h2>
+
+  <p>
+    Girih-2-Generative-Art is a small creative tool that draws traditional Islamic star-and-polygon
+    patterns — known as <em>girih</em> — using a modern, computer-generated approach. Instead of
+    tracing a fixed drawing by hand, the application builds each pattern from a starting seed number
+    and a set of rules. Change the seed, and a new variation appears that still feels historically
+    authentic.
+  </p>
+
+  <p>
+    Three well-known historic girih patterns are included. Each one is layered over a recursive tree
+    structure, which gives the resulting artwork depth and a natural, organic rhythm. Colours are
+    drawn from historic CSS colour palettes, so the finished images look like they belong on a
+    manuscript page, a tile panel, or a length of woven cloth.
+  </p>
+
+  <p>
+    Because every result comes from a seed, the catalogue is <strong>reproducible</strong>. Write down
+    a seed and you can return to that exact piece of ornament months later. That makes the tool
+    genuinely useful for design work, where consistency and repeatable output matter.
+  </p>
+
+  <h2>🕌 The Three Historic Patterns</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Umayyad Mosque Pattern</h3>
+      <p>
+        A rich, interlocking composition inspired by the great mosque of Damascus. Dense, layered and
+        highly decorative — well suited to large-format prints and textile repeats.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Simple Hexagram</h3>
+      <p>
+        A clean six-pointed star arrangement. Calm, balanced and endlessly repeatable, this is the
+        pattern to reach for when you want a subtle background or a minimal, modern surface.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Esreffoglu Mosque Pattern</h3>
+      <p>
+        A more intricate floral-geometric study with fine detail. Best viewed or printed at a larger
+        size, where the smaller shapes and line work become clearly visible.
+      </p>
+    </div>
+  </div>
+
+  <h2>💻 Getting Started on Windows</h2>
+
+  <p>
+    You do not need to be a programmer to use this. There is nothing to compile and no commands to
+    type. Follow the two steps below.
+  </p>
+
+  <div class="step">
+    <p><strong>Step 1 — Download.</strong> Visit this link to download the application:</p>
+    <p><a href="https://github.com/karatepradeep/Girih-2-Generative-Art">https://github.com/karatepradeep/Girih-2-Generative-Art</a></p>
+    <p>Visit this link to download the application.</p>
+  </div>
+
+  <div class="step">
+    <p><strong>Step 2 — Keep the folder together.</strong> Once the download finishes, keep the
+    folder in a place you can easily find, such as your Desktop or Documents folder. Do not move
+    individual files out of the folder, because the pattern files depend on one another.</p>
+  </div>
+
+  <div class="highlight">
+    <p>
+      <strong>Good to know:</strong> the artwork is generated live each time you run it, so there is
+      nothing extra to install afterwards. The same seed always produces the same pattern, on any
+      computer.
+    </p>
+  </div>
+
+  <h2>🖱️ Using the Application</h2>
+
+  <p>
+    Once the download is complete and the files are in place, the application opens as a page in your
+    web browser — Chrome, Edge or Firefox all work fine. The screen is divided into a drawing area
+    where the pattern appears, and a set of simple controls beside it.
+  </p>
+
+  <ol>
+    <li><strong>Choose a pattern.</strong> Pick one of the three historic girih patterns: Umayyad mosque, simple hexagram, or Esreffoglu mosque.</li>
+    <li><strong>Set a seed.</strong> Type any number into the seed box, or let the application pick one for you. The pattern redraws immediately.</li>
+    <li><strong>Change the colour palette.</strong> Switch between the historic palettes to see the same geometry in a completely different mood.</li>
+    <li><strong>Regenerate.</strong> Not quite right? Nudge the seed by one and a fresh variation appears.</li>
+    <li><strong>Save what you like.</strong> When a result pleases you, keep a note of its seed and palette so you can reproduce it later for a client, a print run, or a fabric order.</li>
+  </ol>
+
+  <h2>🌈 Colour Palettes</h2>
+
+  <p>
+    The palettes are built in CSS, which means the colours behave exactly as they would on a styled
+    web page — consistent, predictable, and easy to read on screen or in print. Each palette is drawn
+    from a historic reference, giving combinations of deep indigo, terracotta, ochre, sage, ivory and
+    charcoal that sit comfortably together.
+  </p>
+
+  <p>
+    Because palettes and geometry are handled separately, you can keep a pattern you love and simply
+    try it in every palette available. This is the quickest way to find a combination for a specific
+    product — a scarf, a cushion, a notebook cover or a tiled wall.
+  </p>
+
+  <h2>👗 Who This Is For</h2>
+
+  <ul>
+    <li><strong>Textile and fashion designers</strong> looking for original repeat patterns with a genuine historic root.</li>
+    <li><strong>Surface and interior designers</strong> who need tile, panel or wallpaper motifs quickly.</li>
+    <li><strong>Students and educators</strong> exploring Islamic geometry, tessellation and algorithmic design.</li>
+    <li><strong>Creative coders</strong> who want a readable example of generative ornament built with p5.js, HTML and CSS.</li>
+    <li><strong>Anyone curious</strong> about how a single number can grow into a piece of art.</li>
+  </ul>
+
+  <h2>🧠 A Few Practical Tips</h2>
+
+  <ul>
+    <li>Write your seeds down. A seed plus a palette name is the full recipe for any image you make.</li>
+    <li>Print or view larger than you think you need — the finer girih details only read clearly at a generous size.</li>
+    <li>Try the simple hexagram first. It is the easiest pattern to understand and the most forgiving when scaled up or down.</li>
+    <li>If a pattern looks too busy, change the seed rather than the palette. Small seed changes tend to simplify the composition.</li>
+    <li>Keep a small folder of your favourite results with their seeds written next to the file names.</li>
+  </ul>
+
+  <h2>❓ If Something Does Not Look Right</h2>
+
+  <p>
+    If the page appears blank, close the tab and open it again from the folder you downloaded. If the
+    pattern will not redraw, refresh the browser window. Make sure the whole downloaded folder is
+    still together — moving or renaming individual files inside it will stop the pattern files from
+    finding each other. The download link above always points to the most current version, so if you
+    are unsure whether you have the latest files, visit it again and compare.
+  </p>
+
+  <h2>🧾 Project Details</h2>
+
+  <p>
+    Girih-2-Generative-Art is a reproducible catalogue of computational ornament, built with HTML,
+    CSS, JavaScript and p5.js. It is intended as a generative art toolkit for designers working in
+    fashion, textile and surface design, and as an open reference for anyone studying girih
+    tessellation and procedural generation.
+  </p>
+
+  <p>Download the application here:</p>
+
+  <p><a class="btn" href="https://github.com/karatepradeep/Girih-2-Generative-Art">⬇ Download Girih-2-Generative-Art</a></p>
+
+  <p class="btn-note">Visit this link to download the application.</p>
+
+  <footer>
+    <p>
+      <span class="tag">computational-design</span>
+      <span class="tag">creative-coding</span>
+      <span class="tag">css</span>
+      <span class="tag">generative-art-toolkit</span>
+      <span class="tag">girih</span>
+      <span class="tag">html</span>
+      <span class="tag">javascript</span>
+      <span class="tag">p5js</span>
+      <span class="tag">procedural-generation</span>
+      <span class="tag">reyrove</span>
+      <span class="tag">tessellation</span>
+      <span class="tag">textile-design</span>
+    </p>
+  </footer>
+
+</div>
+</body>
 </html>
